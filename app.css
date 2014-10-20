@@ -5,7 +5,8 @@
    padding: 0;
    width: 20%;
    height: auto;
-   ./*position: absolute;*/
+   display:inline-block;
+   /*position: absolute;*/
 }
 .container {
    display: table-cell;

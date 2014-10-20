@@ -16,6 +16,19 @@ angular.module('ngPiechart', [])
             var width = canvas.width;
             var height = canvas.height;
 
+            var prepSlices = function(slices){
+                //calculate percentages:
+                var total = 0;
+                for(var i=0; i<slices.length; i++){
+                    total += slices[i].value;
+                }
+                for(var i=0; i<slices.length; i++){
+                    slices[i].$pieChartPercentage = (slices[i].value/total) * 100;
+                }
+                return slices;
+            }
+
+
 
             //variables
             var percentComplete = 0.0;
@@ -30,7 +43,9 @@ angular.module('ngPiechart', [])
 
 
             var startAnimation = function(){
-                slices = scope.$eval(attrs.model);
+                console.log('started animation!');
+                slices = prepSlices(scope.$eval(attrs.model));
+                console.log('started animation!');
                 var update = function(diff){
                     percentComplete += diff/duration;
                     if (percentComplete >= 1){
@@ -49,13 +64,12 @@ angular.module('ngPiechart', [])
                         context.moveTo(center.x, center.y);
                         context.beginPath();
                         var startingAngle = angleSum;
-                        var endingAngle = angleSum += (percentComplete*2*Math.PI) * (slices[i].percentage/100);
+                        var endingAngle = angleSum += (percentComplete*2*Math.PI) * (slices[i].$pieChartPercentage/100);
                         context.fillStyle = slices[i].color;
                         context.arc(center.x, center.y, radius, startingAngle, endingAngle, false);
                         context.stroke();
                         context.lineTo(center.x, center.y);
                         context.fill();
-                        //angleSum += (percentComplete*2*Math.PI) * (slices[i].percentage/100);
 
                         context.restore();
                     }
@@ -86,9 +100,9 @@ angular.module('ngPiechart', [])
                 console.log('change happened on: $scope.' + attrs.model);
                 console.log('   from: ', oldVal);
                 console.log('   to: ', newVal);
-                if(newVal && newVal.length){
-                    startAnimation();
+                if(newVal && oldVal !== newVal && newVal.length){
                     console.log('   kicking off new animation!');
+                    startAnimation();
                 }
             });
 
