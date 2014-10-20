@@ -20,7 +20,8 @@ angular.module('ngPiechart', [])
             //variables
             var percentComplete = 0.0;
             var duration = config.duration || 500; //milliseconds
-            var lineWidth = config.lineWidth || 5; //milliseconds
+            var lineWidth = config.lineWidth || 5; //pixels
+            var lineColor = config.lineColor || 'black'; //pixels
 
 
             var center = {x:height/2, y:width/2};
@@ -43,8 +44,8 @@ angular.module('ngPiechart', [])
                     var angleSum = angle; // 0 for now
                     for(var i=0; i<slices.length; i++){
                         context.save();
-                        context.strokeStyle = 'black';
-                        context.lineWidth = config.lineWidth;
+                        context.strokeStyle = lineColor;
+                        context.lineWidth = lineWidth;
                         context.moveTo(center.x, center.y);
                         context.beginPath();
                         var startingAngle = angleSum;

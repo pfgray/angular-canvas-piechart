@@ -4,7 +4,7 @@
 var app = angular.module('test', ['ngPiechart']);
 app.controller('example', ['$scope', function($scope){
 
-    
+
     $scope.chart1 = [{
         percentage:20,
         color:'#42B4E6'
@@ -18,7 +18,7 @@ app.controller('example', ['$scope', function($scope){
         percentage:19,
         color:'#FFFFB5'
     }];
-    
+
     $scope.chart2 = [{
         percentage:30,
         color:'#F5DEB3'
@@ -29,7 +29,7 @@ app.controller('example', ['$scope', function($scope){
         percentage:30,
         color:'#FF6347'
     }];
-    
+
     $scope.chart3 = [{
         percentage:20,
         color:'#0F120E'
@@ -46,10 +46,11 @@ app.controller('example', ['$scope', function($scope){
         percentage:40,
         color:'#B03060'
     }];
-    
+
     $scope.config = {
-        duration:750
+        duration:750,
+        lineWidth:10,
+        lineColor:'black'
     }
 
 }]);
-
