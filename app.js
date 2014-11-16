@@ -45,7 +45,7 @@ app.controller('example', ['$scope', function($scope){
 
     $scope.config = {
         duration:750,
-        lineWidth:10,
+        lineWidth:3,
         lineColor:'black'
     }
 

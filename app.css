@@ -1,22 +1,12 @@
-.wrapper {
-   display: table;
-   padding: 0;
-   width: 20%;
-   height: auto;
+body{
+  margin:0;
+}
+.chartContainer{
+  width:300px;
+  margin:0 auto;
+}
+.chart {
+   width: calc(100%/3);
+   height:100px;
    display:inline-block;
-}
-.container {
-   display: table-cell;
-   vertical-align: middle;
-}
-.canvas-container {
-   position: relative;
-   max-width: 1024px;
-   min-width: 320px;
-   margin: 0 auto;
-}
-canvas {
-   width: 100%;
-   height: auto;
-   background-color: pink;
 }
