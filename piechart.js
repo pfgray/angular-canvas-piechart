@@ -7,14 +7,12 @@ angular.module('ngPiechart', [])
         link:function(scope, element, attrs){
 
             var slices = scope.$eval(attrs.model);
-            var height = scope.$eval(attrs.height);
-            var width  = scope.$eval(attrs.height);
             var config = scope.$eval(attrs.pieChart);
 
             var canvas  = element[0];
             var context = canvas.getContext('2d');
-            var width = canvas.width;
-            var height = canvas.height;
+            var width = canvas.offsetWidth;
+            var height = canvas.offsetHeight;
 
             var prepSlices = function(slices){
                 //calculate percentages:
@@ -28,24 +26,17 @@ angular.module('ngPiechart', [])
                 return slices;
             }
 
-
-
             //variables
             var percentComplete = 0.0;
             var duration = config.duration || 500; //milliseconds
-            var lineWidth = config.lineWidth || 5; //pixels
+            var lineWidth = isNaN(config.lineWidth) ? 3 : config.lineWidth; //pixels
             var lineColor = config.lineColor || 'black'; //pixels
-
-
-            var center = {x:height/2, y:width/2};
-            var radius = width/2 - lineWidth;
+            var center = {x:width/2, y:height/2};
+            var radius = (Math.min(height, width)/2) - lineWidth;
             var angle = 0;
 
-
             var startAnimation = function(){
-                console.log('started animation!');
                 slices = prepSlices(scope.$eval(attrs.model));
-                console.log('started animation!');
                 var update = function(diff){
                     percentComplete += diff/duration;
                     if (percentComplete >= 1){
@@ -67,10 +58,11 @@ angular.module('ngPiechart', [])
                         var endingAngle = angleSum += (percentComplete*2*Math.PI) * (slices[i].$pieChartPercentage/100);
                         context.fillStyle = slices[i].color;
                         context.arc(center.x, center.y, radius, startingAngle, endingAngle, false);
-                        context.stroke();
+                        if(lineWidth > 0){
+                            context.stroke();
+                        }
                         context.lineTo(center.x, center.y);
                         context.fill();
-
                         context.restore();
                     }
                 };
@@ -97,11 +89,7 @@ angular.module('ngPiechart', [])
             }
 
             scope.$watch(attrs.model, function(newVal, oldVal, scope){
-                console.log('change happened on: $scope.' + attrs.model);
-                console.log('   from: ', oldVal);
-                console.log('   to: ', newVal);
                 if(newVal && oldVal !== newVal && newVal.length){
-                    console.log('   kicking off new animation!');
                     startAnimation();
                 }
             });
