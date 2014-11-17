@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Canvas Pie Chart</title>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="piechart.js"></script>
+        <script src="app.js"></script>
+        <link rel="stylesheet" type="text/css" href="app.css">
+    </head>
+    <body ng-app="test">
+        <div class="chartContainer" ng-controller="example">
+          <canvas class="chart" pie-chart="config" model="chart1" height="100" width="100"></canvas><canvas
+                  class="chart" pie-chart="config" model="chart2" height="100" width="100"></canvas><canvas
+                  class="chart" pie-chart="config" model="chart3" height="100" width="100"></canvas>
+        </div>
+    </body>
+</html>
