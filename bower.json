@@ -12,7 +12,7 @@
     "chart",
     "graphs",
     "angular",
-    "canvas",
+    "canvas"
   ],
   "license": "MIT",
   "ignore": [
