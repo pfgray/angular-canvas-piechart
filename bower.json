@@ -19,7 +19,8 @@
     "**/.*",
     "bower_components",
     "site",
-    "index.html"
+    "index.html",
+    "bower.json"
   ],
   "dependencies": {
     "angular": "~1.3.0"
