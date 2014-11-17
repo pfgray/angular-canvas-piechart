@@ -15,15 +15,7 @@
     "canvas"
   ],
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "bower_components",
-    "site",
-    "index.html",
-    "*.js",
-    "bower.json",
-    "package.json"
-  ],
+  "ignore": [],
   "dependencies": {
     "angular": "~1.3.0"
   }
