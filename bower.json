@@ -1,25 +1,25 @@
 {
-  "name": "canvas-piechart",
+  "name": "angular-canvas-piechart",
   "version": "1.0.0",
-  "homepage": "https://github.com/pfgray/canvas-piechart",
+  "homepage": "https://github.com/pfgray/angular-canvas-piechart",
+  "main": "angular-canvas-piechart.js",
   "authors": [
     "Paul Gray <pfbgray@gmail.com>"
   ],
   "description": "An angular plugin for beautiful piecharts",
-  "main": "piechart.js",
   "keywords": [
     "pie",
     "chart",
     "graphs",
-    "angular"
+    "angular",
+    "canvas",
   ],
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "site",
+    "index.html"
   ],
   "dependencies": {
     "angular": "~1.3.0"
