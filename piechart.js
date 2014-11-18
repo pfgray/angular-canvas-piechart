@@ -57,11 +57,17 @@ angular.module('ngPiechart', [])
                         var startingAngle = angleSum;
                         var endingAngle = angleSum += (percentComplete*2*Math.PI) * (slices[i].$pieChartPercentage/100);
                         context.fillStyle = slices[i].color;
-                        context.arc(center.x, center.y, radius, startingAngle, endingAngle, false);
+                        context.arc(center.x, center.y, radius - 5, startingAngle, endingAngle, false);
                         if(lineWidth > 0){
                             context.stroke();
                         }
                         context.lineTo(center.x, center.y);
+
+                        context.shadowColor = 'black';
+                        context.shadowBlur = 10;
+                        context.shadowOffsetX = 0;
+                        context.shadowOffsetY = 0;
+
                         context.fill();
                         context.restore();
                     }

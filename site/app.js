@@ -3,27 +3,27 @@ app.controller('example', ['$scope', function($scope){
 
     $scope.chart1 = [{
         value:8000,
-        color:'#42B4E6'
+        color:'#6F936C'
     },{
         value:9500,
-        color:'#FF9797'
+        color:'#403D53'
     },{
         value:1000,
-        color:'#8BFEA8'
+        color:'#ABA5D2'
     },{
         value:3000,
-        color:'#FFFFB5'
+        color:'#FF6800'
     }];
 
     $scope.chart2 = [{
         value:30,
-        color:'#F5DEB3'
+        color:'#6F936C'
     },{
         value:40,
-        color:'#DDA0DD'
+        color:'#FF6800'
     },{
         value:30,
-        color:'#FF6347'
+        color:'#403D53'
     }];
 
     $scope.chart3 = [{
@@ -43,10 +43,11 @@ app.controller('example', ['$scope', function($scope){
         color:'#B03060'
     }];
 
+    //867970
     $scope.config = {
         duration:750,
-        lineWidth:3,
-        lineColor:'black'
+        lineWidth:0,
+        lineColor:'white'
     }
 
 }]);
