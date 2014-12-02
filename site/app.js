@@ -1,4 +1,4 @@
-var app = angular.module('test', ['ngPiechart']);
+var app = angular.module('angular-canvas-piechart', ['ngPiechart', 'ui.router']);
 app.controller('example', ['$scope', function($scope){
 
     $scope.chart1 = [{

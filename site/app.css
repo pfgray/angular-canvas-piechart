@@ -1,43 +1,8 @@
 body{
-  margin:0;
-  color: rgba(119,119,119, 0.8);
-  text-shadow: 1px 4px 6px #DDD, 0 0 0 #000; //1px 4px 6px #DDD;
-  font-family:'sans serif'
-}
-.chartContainer{
-  width:900px;
-  margin:0 auto;
-}
-.chart {
-}
-.row{
-    padding:1em 15em;
-    text-align:center;
-}
-.row *{
-    vertical-align:middle;
-}
-.row.white{
-    background-image:url('images/noise_white.png');
-}
-.row.brown{
-    background-image:url('images/noise_brown.png');
-}
-.row.purple{
-    background-image:url('images/noise_purple.png');
-    color:white;
-}
-.row.green{
-    background-image:url('images/noise_green.png');
+  background-color:#EEE;
 }
 .header{
     height:150px;
     text-align:center;
     font-family: 'Oleo Script';
-}
-.chartLabel{
-    color:white;
-    text-shadow: 1px 2px 3px #222, 0 0 0 #FFF, 1px 2px 3px #222;
-    display:inline-block;
-    font-size:1.5em;
 }
